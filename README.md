@@ -40,6 +40,7 @@ The `wvkbd` on-screen keyboard sometimes appears in inconsistent positions acros
 - **[Jeod](https://github.com/JeodC)** — testing the Thor variant
 - **[Zoidburg13](https://github.com/Zoidburg13)** — system icons
 - **Dan Patric** — console logos, from [Console Logos: Professionally Redrawn (plus Official Versions)](https://archive.org/details/console-logos-professionally-redrawn-plus-official-versions)
+- **AnB** - A heartfelt thanks to my wife, who always listens to my rambling without understanding a single word of it.
 
 My username traces back to a misspelled name from Secret of Mana. And a heartfelt thanks to my wife, who always listens to my rambling without understanding a single word of it.
 

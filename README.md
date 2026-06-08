@@ -50,6 +50,6 @@ My username traces back to a misspelled name from Secret of Mana. And a heartfel
 ## Trademarks & attribution
 
 - "Castlevania Throne" is derived from *Castlevania: Symphony of the Night* artwork — Castlevania belongs to Konami.
-- "Mario Castle" depicts Super Mario Bros. artwork — SMB belongs to Nintendo. The original artist is unknown to us; if you made this piece, get in touch and we'll credit you.
+- "Mario Castle" depicts SMB. artwork — SMB belongs to the big N. The original artist is unknown to us; if you made this piece, get in touch and we'll credit you.
 
 All trademarks and copyrighted artwork remain the property of their respective owners. This is a fan-made, non-commercial theme shared with the ROCKNIX/EmulationStation community.

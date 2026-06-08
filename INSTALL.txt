@@ -1,0 +1,52 @@
+dsi-puh-lus — Installation Instructions
+=========================================
+
+1. COPY THE THEME FOLDER
+   Copy the entire dsi-puh-lus folder to your device at either:
+     /roms/themes/
+     /storage/.config/emulationstation/themes/
+
+   Example (via network share or SSH):
+     cp -r dsi-puh-lus /storage/.config/emulationstation/themes/
+
+
+2. COPY THE ENABLE SCRIPT
+   Copy the enable script to your Ports folder:
+     dsi-puh-lus/scripts/enable_theme_dsi-puh-lus.sh  →  /roms/ports/
+
+
+3. MAKE IT EXECUTABLE (if copied via SSH or it lost permissions)
+     chmod +x /roms/ports/enable_theme_dsi-puh-lus.sh
+
+
+4. RUN THE SCRIPT
+   Open EmulationStation → go to the Ports section → run "enable_theme_dsi-puh-lus"
+   ES will restart with the theme loaded.
+
+
+AUTO-RUN (optional)
+   Highlight the script in Ports → press X → Advanced Game Options → turn on
+   "Start This Game At Launch". The theme will activate every boot automatically.
+
+
+SCRAPING (via SSH — bypasses broken progress overlay)
+    Copy the scraper script to your device:
+      dsi-puh-lus/scripts/scrape_screenscraper.py  →  anywhere on the device (e.g. /storage/)
+
+    Then SSH in and run:
+      sudo python3 /storage/scrape_screenscraper.py
+      — or for a single system —
+      sudo python3 /storage/scrape_screenscraper.py snes
+      — re-scrape already-done ROMs —
+      sudo python3 /storage/scrape_screenscraper.py snes --force
+
+    The script reads your ScreenScraper credentials from es_settings.cfg
+    automatically. Images are saved to /storage/roms/{system}/images/
+    and gamelist.xml is updated. Restart ES when done.
+
+UNINSTALL
+    1. Start Menu → System Settings → Frontend Developer Options →
+       Stop Running This Game At Startup
+    2. Start Menu → User Interface Settings → Theme Set → choose a different theme
+    3. Reboot
+    4. Delete the dsi-puh-lus folder from themes/ and the script from /roms/ports/

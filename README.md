@@ -1,56 +1,51 @@
-## DII-ESS-AYE
-A janky emulationstation theme for ROCKNIX meant to make the Anbernic RG DS feel a bit more like a chunky DSi.
+# dsi-puh-lus
 
-# Known Issues (that won't be fixed)
-1. Keyboard and horizontally longer popups are incorrectly sized.
-2. Advanced Game Options is hidden.
-  - Workaround by pressing your Advanced Game Options button twice.
-3. Slider setting bars are way too long.
-4. AYN Thor implementation is broken. Might be fixed if I ever get one.
+A custom [EmulationStation](https://emulationstation.org/) theme for [ROCKNIX](https://github.com/ROCKNIX/distribution), built specifically for the dual-screen **Anbernic RG DS**. It splits ES's 1920×480 canvas into a proper top-screen / bottom-screen layout — system and game art, status info, and RetroAchievements data on top; navigation and game lists on the bottom — instead of stretching a single-screen theme across both panels.
 
-### Install
-1. Download or clone this repository
-2. Copy the contents of this repository into your themes folder under a folder named `dii-ess-aye`
-  - Either connect to your network share and put it in the `themes` folder
-  - Or copy it to `/STORAGE/.config/emulationstation/themes/` directly
-3. Copy only the enable script for your device from the repository's `scripts` folder into your `roms/ports` folder
-  - !!! NOTE: If you downloaded the theme as a zip, you may need to re-enable execution on the `enable_theme_*.sh` script either
-              after extraction on your computer or on the device via ssh. Use `chmod +x enable_theme_*.sh` for either method.
-4. After updating your gamelists, open your ports section on your device and
-  - Either run the enable script every time you want to enable the theme
-    - (You will have to manually change the theme setting when you want to switch back)
-  - Or set the enable script to run at launch by opening the Advanced Game Options and turning on that option
-    - Optionally, set the enable script's metadata Hidden option if you don't want it to clutter the ports
-5. Enjoy?
+## Requirements
 
-### Uninstall
-1. If your enable script is set to auto start: Start Menu -> System Settings -> Frontend Developer Options -> Stop Running This Game At Startup
-2. Switch your theme back to SYSTEM-THEME: Start Menu -> User Inferface Settings -> Theme Set
-3. Reboot
-4. If your enable script is hidden either manually delete the script completely from `/roms/ports`, or
-  1. Go to Start Menu -> User Interface Settings -> Enable Show Hidden Files
-  2. Go to your Ports section in EmulationStation and highlight the script
-  3. Press X -> Edit This Game's Metadata -> Select the DELETE button at the bottom
-  4. Say "Yeah man, I wanna do it."
-5. Enjoy no longer...
+- **Hardware**: [Anbernic RG DS](https://anbernic.com/products/rgds)
+- **Firmware**: [ROCKNIX](https://github.com/ROCKNIX/distribution/releases)
 
-### Scraping Recommendations
-I recommend using Skraper and setting it to:
-- Generate a gamelist.xml
-- Scrape a miximage, linked to `<image>` node
-- Scrape a support texture, resized to a square resolution, linked to `<thumbnail>` node
-- (Optional) Scrape a video, linked to `<video>` node
+## Features
 
-If you already have a scraped collection, and just want to make it look okay enough with this theme
-there are additional thumbnail scripts provided in the `scripts/thumbnails` directory of this repository
-that can automatically crop (hard cut to 256x256), squish (preserves image, compresses to fit 256x256),
-or resize (preserves image and aspect ratio, shrinks to 256x256) your existing boxart or support textures.
-These can be run on your device after all gamelists, games, and images are in place.
+- Dual-screen-aware layout: the canvas is split into three 640px columns (top screen, bottom screen, off-screen bleed), and every element respects that boundary
+- Selectable backgrounds ("Castlevania Throne", "Mario Castle") via ES's subset menu
+- Hero/logo art with a soft white outline so dark artwork stays visible against dark backgrounds
+- Custom system carousel with a golden selection glow and animated pointer
+- Styled game list with a translucent panel and resized box art
+- Live RetroAchievements username shown in the top status bar
+- Status indicators (clock, battery, network) themed to match the UI
+- Bundled scripts: theme enable/launch from the Ports menu, and a Python ScreenScraper helper for scraping over SSH
 
-### Special Thanks!
-- Ant (https://github.com/anthonycaccese) for the status and slot icons and their implementation.
-- Jeod (https://github.com/JeodC) for help testing the Thor variant.
-- Zoidburg13 (https://github.com/Zoidburg13) for their wonderful system icons. 
+## Written in
 
-### Previews
-<img src="main_preview.jpeg" width="49%" /> <img src="game_preview.jpeg" width="49%" />
+- EmulationStation theme XML (`formatVersion 7`)
+- Bash (enable/launch scripts)
+- Python (ScreenScraper helper, asset-prep tooling)
+
+## Installation
+
+See [INSTALL.txt](INSTALL.txt).
+
+## Known issue: on-screen keyboard positioning
+
+The `wvkbd` on-screen keyboard sometimes appears in inconsistent positions across different text-input screens (e.g. WiFi setup vs. RetroAchievements login). This **cannot be fixed from the theme** — `wvkbd`'s placement is controlled entirely by the `sway` compositor's window/output focus handling via the Wayland `zwp_text_input_v3` protocol, which the theme XML has no hooks into. A real fix would need either a `sway` `for_window` rule shipped at the OS level or an upstream ES patch making the keyboard dual-screen-aware.
+
+## Credits
+
+- **[beebono](https://github.com/beebono/dii-ess-aye)** — creator of the original `dii-ess-aye` theme this is forked from
+- **ravage_savage** (Reddit) — background artwork; see their [V2NES dual-screen NES emulator post](https://www.reddit.com/r/3dspiracy/comments/1tu80tq/v2nes_dualscreen_nes_emulator_for_3ds/)
+- **[Ant](https://github.com/anthonycaccese)** — status and slot icons, and their implementation
+- **[Jeod](https://github.com/JeodC)** — testing the Thor variant
+- **[Zoidburg13](https://github.com/Zoidburg13)** — system icons
+- **Dan Patric** — console logos, from [Console Logos: Professionally Redrawn (plus Official Versions)](https://archive.org/details/console-logos-professionally-redrawn-plus-official-versions)
+
+My username traces back to a misspelled name from Secret of Mana. And a heartfelt thanks to my wife, who always listens to my rambling without understanding a single word of it.
+
+## Trademarks & attribution
+
+- "Castlevania Throne" is derived from *Castlevania: Symphony of the Night* artwork — Castlevania belongs to Konami.
+- "Mario Castle" depicts Super Mario Bros. artwork — SMB belongs to Nintendo. The original artist is unknown to us; if you made this piece, get in touch and we'll credit you.
+
+All trademarks and copyrighted artwork remain the property of their respective owners. This is a fan-made, non-commercial theme shared with the ROCKNIX/EmulationStation community.

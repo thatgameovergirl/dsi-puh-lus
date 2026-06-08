@@ -32,6 +32,9 @@ See [INSTALL.txt](INSTALL.txt).
 
 The `wvkbd` on-screen keyboard sometimes appears in inconsistent positions across different text-input screens (e.g. WiFi setup vs. RetroAchievements login). This **cannot be fixed from the theme** — `wvkbd`'s placement is controlled entirely by the `sway` compositor's window/output focus handling via the Wayland `zwp_text_input_v3` protocol, which the theme XML has no hooks into. A real fix would need either a `sway` `for_window` rule shipped at the OS level or an upstream ES patch making the keyboard dual-screen-aware.
 
+## Known issue: scraper on-screen notification doesn't appear
+Scraper batch progress overlay renders off-screen — When running a batch scrape, the progress notification doesn't appear on screen. ROCKNIX's ES fork has no theme-able scraper view; the overlay is a hardcoded C++ component pinned to the top-right of the 1920px canvas — which lands in the off-screen third column on this dual-screen layout. Theme-side styling (fonts/colors) still applies, but position can't be fixed without an upstream patch. Workaround: use the bundled scrape_screenscraper.py to scrape over SSH instead.
+
 ## Credits
 
 - **[beebono](https://github.com/beebono/dii-ess-aye)** — creator of the original `dii-ess-aye` theme this is forked from

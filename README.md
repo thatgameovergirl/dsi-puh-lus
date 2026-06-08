@@ -38,7 +38,7 @@ Scraper batch progress overlay renders off-screen — When running a batch scrap
 ## Credits
 
 - **[beebono](https://github.com/beebono/dii-ess-aye)** — creator of the original `dii-ess-aye` theme this is forked from
-- **ravage_savage** (Reddit) — background artwork; see their [V2NES dual-screen NES emulator post](https://www.reddit.com/r/3dspiracy/comments/1tu80tq/v2nes_dualscreen_nes_emulator_for_3ds/)
+- **ravage_savage** (Reddit) — background artwork; see their awesome upgrade via Reddit.(https://www.reddit.com/u/ravage_savage/s/8Ik7afKkzw)
 - **[Ant](https://github.com/anthonycaccese)** — status and slot icons, and their implementation
 - **[Jeod](https://github.com/JeodC)** — testing the Thor variant
 - **[Zoidburg13](https://github.com/Zoidburg13)** — system icons

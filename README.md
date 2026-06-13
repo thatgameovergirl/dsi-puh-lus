@@ -35,7 +35,7 @@ The `wvkbd` on-screen keyboard sometimes appears in inconsistent positions acros
 ## Known issue: scraper on-screen notification doesn't appear
 Scraper batch progress overlay renders off-screen — When running a batch scrape, the progress notification doesn't appear on screen. ROCKNIX's ES fork has no theme-able scraper view; the overlay is a hardcoded C++ component pinned to the top-right of the 1920px canvas — which lands in the off-screen third column on this dual-screen layout. Theme-side styling (fonts/colors) still applies, but position can't be fixed without an upstream patch. Workaround: use the bundled scrape_screenscraper.py to scrape over SSH instead.
 
-**Known issue: brightness slider label overlap**
+## Known issue: brightness slider label overlap
 In Settings > Hardware, the brightness slider bar renders on top of its own label text, making the label unreadable. This is not a theme bug — the same overlap appears in ROCKNIX's own `system-theme` on this device. The slider is a built-in ES component whose layout is hardcoded in C++; the theme can style colors and fonts but cannot reposition the bar relative to its label. No fix is possible from the theme side. Report it upstream to ROCKNIX if it affects usability.
 
 ## Credits
